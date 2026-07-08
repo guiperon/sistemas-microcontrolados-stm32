@@ -6,6 +6,6 @@
     "memory-inspector.groupings.MAUsPerGroup": 4,
     "memory-inspector.scrollingBehavior": "Auto-Append",
     "clangd.arguments": [
-        "--compile-commands-dir=c:\\Users\\Gui\\Downloads\\Blinky_Example\\out\\Blinky\\STM32F411_Flash"
+        "--compile-commands-dir=c:\\Users\\Gui\\Github\\sistemas-microcontrolados-stm32\\00-blink\\out\\Blinky\\STM32F411_Flash"
     ]
 }

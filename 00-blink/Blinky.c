@@ -126,10 +126,10 @@ int main (void) {
 
   for (;;) {
     LED_On();                                              /* Turn LED on */
-    Delay(1500);                                            /* Wait 500ms */
+    Delay(500);                                            /* Wait 500ms */
     while (Button_Pressed());                              /* Wait while holding USER key */
     LED_Off();                                             /* Turn LED off */
-    Delay(1500);                                            /* Wait 500ms */
+    Delay(500);                                            /* Wait 500ms */
     while (Button_Pressed());                              /* Wait while holding USER key */
 
     printf ("Hello World\n\r");
