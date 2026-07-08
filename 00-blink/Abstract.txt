@@ -1,0 +1,23 @@
+The 'Blinky' project is a simple demo program for
+ST 'STM32F411CEU6' microcontroller using the WeAct 'Black Pill' Development Board.
+Compliant to Cortex Microcontroller Software Interface Standard (CMSIS).
+
+Example functionality:
+ - Clock Settings:
+   - XTAL    = HSE     = 25.00 MHz
+   - SYSCLK  =           48.00 MHz
+
+ - the onboard LED (PC13) blinks with a fixed speed, determined by SysTick Timer working in interrupt mode.
+ - blinking is paused while holding down the USER key (PA0).
+ - "Hello World" is output onto serial port UART2
+   UART2 settings: 115200 baud, 8 data bits, no parity, 1 stop bit
+   (requires an external USB-to-serial adapter wired to PA2/PA3)
+
+
+The Blinky example is available in different targets:
+
+  STM32F411 Flash:    configured for on-chip Flash
+                      (used for production or target debugging)
+
+  STM32F411 RAM:      configured for on-chip RAM
+                      (used for target debugging)
