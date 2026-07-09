@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "STLink@Arm-Debugger (launch)",
+            "type": "arm-debugger",
+            "request": "launch",
+            "connectionAddress": "*",
+            "connectionType": "ST-Link",
+            "programs": [
+                "${command:arm-debugger.getApplicationFiles}"
+            ],
+            "programMode": "flash",
+            "cmsisPack": "${command:cmsis-csolution.getDfpName}",
+            "deviceName": "STM32F411CEUx",
+            "processorName": "${command:cmsis-csolution.getProcessorName}",
+            "workspaceFolder": "${workspaceFolder}/",
+            "debugClockSpeed": "auto",
+            "debugPortMode": "auto",
+            "cmsis": {
+                "updateConfiguration": "auto"
+            }
+        }
+    ]
+}

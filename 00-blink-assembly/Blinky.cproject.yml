@@ -1,0 +1,129 @@
+project:
+  packs:
+    - pack: Keil::ARM_Compiler@^1.7.2
+    - pack: ARM::CMSIS@^5.9.0
+    - pack: Keil::MDK-Middleware@^6.1.0
+    - pack: Keil::STM32F4xx_DFP@^2.17.0-dev0
+    - pack: Keil::MDK-Middleware_Graphics@^1.3.1
+    - pack: ARM::CMSIS-NN@^4.0.0
+    - pack: ARM::CMSIS-DSP@^1.10.1
+  setups:
+    - setup: Options for STM32F411_Flash
+      for-context: +STM32F411_Flash
+      processor:
+        fpu: sp
+      debug: "on"
+      define:
+        - __MICROLIB
+      define-asm:
+        - __MICROLIB
+      misc:
+        - C:
+            - -std=c99
+          C-CPP:
+            - -fno-rtti
+            - -funsigned-char
+            - -fshort-enums
+            - -fshort-wchar
+            - -ffunction-sections
+            - -Wno-packed
+            - -Wno-missing-variable-declarations
+            - -Wno-missing-prototypes
+            - -Wno-missing-noreturn
+            - -Wno-sign-conversion
+            - -Wno-nonportable-include-path
+            - -Wno-reserved-id-macro
+            - -Wno-unused-macros
+            - -Wno-documentation-unknown-command
+            - -Wno-documentation
+            - -Wno-license-management
+            - -Wno-parentheses-equality
+          CPP:
+            - -xc++
+            - -std=c++11
+            - -fno-exceptions
+          ASM:
+            - -masm=auto
+          Link:
+            - --library_type=microlib
+            - --map
+            - --load_addr_map_info
+            - --xref
+            - --callgraph
+            - --symbols
+            - --info sizes
+            - --info totals
+            - --info unused
+            - --info veneers
+            - --strict
+            - --summary_stderr
+            - --info summarysizes
+    - setup: Options for STM32F411_RAM
+      for-context: +STM32F411_RAM
+      processor:
+        fpu: sp
+      debug: "on"
+      define:
+        - VECT_TAB_SRAM
+        - __MICROLIB
+      define-asm:
+        - __MICROLIB
+      misc:
+        - C:
+            - -std=c99
+          C-CPP:
+            - -fno-rtti
+            - -funsigned-char
+            - -fshort-enums
+            - -fshort-wchar
+            - -ffunction-sections
+            - -Wno-packed
+            - -Wno-missing-variable-declarations
+            - -Wno-missing-prototypes
+            - -Wno-missing-noreturn
+            - -Wno-sign-conversion
+            - -Wno-nonportable-include-path
+            - -Wno-reserved-id-macro
+            - -Wno-unused-macros
+            - -Wno-documentation-unknown-command
+            - -Wno-documentation
+            - -Wno-license-management
+            - -Wno-parentheses-equality
+          CPP:
+            - -xc++
+            - -std=c++11
+            - -fno-exceptions
+          ASM:
+            - -masm=auto
+          Link:
+            - --library_type=microlib
+            - --map
+            - --load_addr_map_info
+            - --xref
+            - --callgraph
+            - --symbols
+            - --info sizes
+            - --info totals
+            - --info unused
+            - --info veneers
+            - --strict
+            - --summary_stderr
+            - --info summarysizes
+  linker:
+    - script: Blinky_STM32F411_Flash.sct
+      for-context: +STM32F411_Flash
+    - script: Blinky_STM32F411_RAM.sct
+      for-context: +STM32F411_RAM
+  groups:
+    - group: Source Files
+      files:
+        - file: Blinky.s
+    - group: Documentation
+      files:
+        - file: Abstract.txt
+  components:
+    - component: ARM::CMSIS:CORE
+    - component: Keil::Device:Startup
+      misc:
+        - ASM:
+            - -masm=auto

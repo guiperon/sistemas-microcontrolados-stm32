@@ -1,0 +1,22 @@
+The 'Blinky' project is a simple demo program for
+ST 'STM32F411CEU6' microcontroller using the WeAct 'Black Pill' Development Board.
+Compliant to Cortex Microcontroller Software Interface Standard (CMSIS).
+
+'main' is written entirely in Cortex-M4 assembly (Blinky.s, GNU/AT&T syntax)
+instead of C.
+
+Example functionality:
+ - Clock Settings:
+   - runs on the default HSI clock (16 MHz) - no PLL configuration.
+
+ - the onboard LED (PC13) blinks with a fixed speed, using a busy-wait delay loop.
+ - blinking is paused while holding down the USER key (PA0).
+
+
+The Blinky example is available in different targets:
+
+  STM32F411 Flash:    configured for on-chip Flash
+                      (used for production or target debugging)
+
+  STM32F411 RAM:      configured for on-chip RAM
+                      (used for target debugging)
